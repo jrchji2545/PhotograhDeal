@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:backgroundTint="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/fragment_container"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
+
+    <!--    </FrameLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="vertical"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+
+        <SearchView
+            android:layout_gravity="center"
+            android:layout_width="350dp"
+
+            android:queryHint="Search Name"
+            android:queryBackground="@color/white"
+
+            android:layout_height="match_parent"
+            android:id="@+id/search_text"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:id="@+id/searchRecycler"
+            android:layout_gravity="center"
+            android:layout_width="350dp"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/search_model"/>
+    </LinearLayout>
+</LinearLayout>

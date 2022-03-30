@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/PhotograhDeal/app/src/main/res/drawable/border.xml" value="0.1375" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/activity_bottom.xml" value="0.1" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/activity_bottom2.xml" value="0.1" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/activity_main.xml" value="0.18059777102330293" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/dialog_bio.xml" value="0.20244565217391305" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/dialog_upload.xml" value="0.18059777102330293" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/fragment_dashboard.xml" value="0.18059777102330293" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/gallery_model.xml" value="0.33" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/profile_click_fragment.xml" value="0.2563405797101449" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/profile_fragment.xml" value="0.33" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/profile_item.xml" value="0.18059777102330293" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/search_fragment.xml" value="0.18059777102330293" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/layout/search_model.xml" value="0.18059777102330293" />
+        <entry key="..\:/PhotograhDeal/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
