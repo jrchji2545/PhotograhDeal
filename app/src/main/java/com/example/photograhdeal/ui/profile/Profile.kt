@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -35,6 +36,7 @@ class Profile : Fragment() {
     lateinit var profileName: TextView
     lateinit var bioText: TextView
     lateinit var edit_btn: ImageView
+    lateinit var edit_btn2: ImageView
     lateinit var upload_btn: ImageView
     lateinit var test : ImageView
     lateinit var mAuth: FirebaseAuth
@@ -43,6 +45,9 @@ class Profile : Fragment() {
     lateinit var listGallery: ArrayList<Gallery>
     lateinit var urlImage : Uri
     lateinit var logout : Button
+
+    lateinit var roledis:TextView
+
 
 
     override fun onCreateView(
@@ -54,17 +59,21 @@ class Profile : Fragment() {
         profileImg = root.findViewById<ImageView>(R.id.profile_image)
         profileName = root.findViewById<TextView>(R.id.profile_name)
         edit_btn = root.findViewById<ImageView>(R.id.edit_btn)
+        edit_btn2 = root.findViewById<ImageView>(R.id.edit_btn2)
         bioText = root.findViewById<TextView>(R.id.bio_frame)
         upload_btn = root.findViewById<ImageView>(R.id.upload_btn)
         test = root.findViewById<ImageView>(R.id.test)
         galleryRec = root.findViewById<RecyclerView>(R.id.gallery)
         logout = root.findViewById<Button>(R.id.logout)
+//
+        roledis = root.findViewById<TextView>(R.id.role_display)
         galleryRec.layoutManager = LinearLayoutManager(this.context,RecyclerView.HORIZONTAL,false)
         galleryRec.setHasFixedSize(true)
         mAuth = FirebaseAuth.getInstance()
         val user = mAuth.currentUser
         listGallery = arrayListOf<Gallery>()
         listProfile = arrayListOf<ProfileData>()
+
 
 
         upload_btn.setOnClickListener {
@@ -85,6 +94,34 @@ class Profile : Fragment() {
         getGallery()
 
         return root
+    }
+    private fun showRoleDialog(){
+        edit_btn2.setOnClickListener {
+
+        val builder2 = AlertDialog.Builder(this.context)
+        val inflater2 = layoutInflater
+        val dialogLayout2 = inflater2.inflate(R.layout.dialog_role, null)
+        val spinner = dialogLayout2.findViewById<Spinner>(R.id.spinner_status)
+        with(builder2){
+            val role = arrayOf("None","Photographer","Model")
+            spinner.adapter =
+                this.context?.let { ArrayAdapter<String>(it,android.R.layout.simple_list_item_1,role) }
+
+            spinner.onItemSelectedListener = object:AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    dbRef = FirebaseDatabase.getInstance().getReference("User").child("Auth").child(mAuth.currentUser!!.uid).child("role")
+                    dbRef.setValue(role[p2].toString())
+
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+
+                }
+            }
+            setView(dialogLayout2)
+            show()
+        }
+        }
     }
 
     private fun showEditTextDialog() {
@@ -157,6 +194,7 @@ class Profile : Fragment() {
                     val adapter = PAdapter(listProfile)
                     Glide.with(requireActivity()).load(user?.photoUrl).into(profileImg)
                     profileName.text = adapter.getProfileAdapter()[0].name.toString()
+                    roledis.text = "Role : ${adapter.getProfileAdapter()[0].role.toString()}"
                     if(adapter.getProfileAdapter()[0].bio.toString() == "null"){
                         bioText.setText("Put your bio here....")
                     }else{
@@ -168,6 +206,7 @@ class Profile : Fragment() {
                         edit_btn.visibility = View.INVISIBLE
                     }else{
                         showEditTextDialog()
+                        showRoleDialog()
                     }
 //                    val adapter = MyAdapter(musicNewArrayList)
 //                    musicNewRecyclerView.adapter = adapter

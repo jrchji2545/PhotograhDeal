@@ -5,5 +5,6 @@ data class ProfileData (
     var profile : String? = null,
     var uid : String? = null,
     var name : String? = null,
+    var role : String? = null,
 
         )

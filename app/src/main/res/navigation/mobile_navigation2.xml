@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.example.photograhdeal.ui.search.Search"
+        android:name="com.example.photograhdeal.ui.search.Model"
         android:label="@string/title_search"
         tools:layout="@layout/search_fragment" />
 

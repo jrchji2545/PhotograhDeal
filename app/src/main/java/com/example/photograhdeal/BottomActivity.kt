@@ -5,21 +5,19 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.photograhdeal.databinding.ActivityBottom2Binding
 import com.example.photograhdeal.ui.dashboard.DashboardFragment
 import com.example.photograhdeal.ui.home.HomeFragment
 import com.example.photograhdeal.ui.profile.Profile
 import com.example.photograhdeal.ui.profile.ProfileClick
-import com.example.photograhdeal.ui.search.Search
+import com.example.photograhdeal.ui.search.MainSearch
+import com.example.photograhdeal.ui.search.Model
 
 class BottomActivity : AppCompatActivity(),Communicator {
 
     private lateinit var binding: ActivityBottom2Binding
     private val homeFragment = HomeFragment()
-    private val searchFragment = Search()
+    private val searchFragment = MainSearch()
     private val profileFragment = Profile()
     private val dashboardFragment = DashboardFragment()
 

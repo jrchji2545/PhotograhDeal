@@ -1,6 +1,5 @@
 package com.example.photograhdeal.ui.search
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,10 +14,10 @@ import com.example.photograhdeal.ui.profile.ProfileData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
-class Search : Fragment() {
+class Model : Fragment() {
 
     companion object {
-        fun newInstance() = Search()
+        fun newInstance() = Model()
     }
     private lateinit var communicator: Communicator
     private lateinit var viewModel: SearchViewModel
@@ -60,7 +59,7 @@ class Search : Fragment() {
                                 for (userSnapshot in snapshot.children) {
                                     val search = userSnapshot.getValue(ProfileData::class.java)
                                     if (search != null) {
-                                        if (search.name!!.lowercase().contains(input)) {
+                                        if (search.name!!.lowercase().contains(input) && search.role == "Model") {
                                                     listSearch.add(search)
                                         }
                                         var adapter = SAdapter(listSearch)
